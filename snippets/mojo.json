@@ -1,0 +1,252 @@
+{
+  "Main function": {
+    "prefix": "main",
+    "body": [
+      "def main() -> None:",
+      "    $0"
+    ],
+    "description": "Create a Mojo main entry point"
+  },
+  "Def main function": {
+    "prefix": "defmain",
+    "body": [
+      "def main() -> None:",
+      "    $0"
+    ],
+    "description": "Create a Mojo main entry point"
+  },
+  "Function": {
+    "prefix": "def",
+    "body": [
+      "def ${1:name}(${2:args})${3: -> Type}:",
+      "    $0"
+    ],
+    "description": "Create a Mojo function"
+  },
+  "Raising function": {
+    "prefix": "defr",
+    "body": [
+      "def ${1:name}(${2:args}) raises${3: -> Type}:",
+      "    $0"
+    ],
+    "description": "Create a Mojo function that can raise"
+  },
+  "Method": {
+    "prefix": "method",
+    "body": [
+      "def ${1:name}(self${2:, args})${3: -> Type}:",
+      "    $0"
+    ],
+    "description": "Create a Mojo instance method"
+  },
+  "Mutating method": {
+    "prefix": "mutmethod",
+    "body": [
+      "def ${1:name}(mut self${2:, args})${3: -> Type}:",
+      "    $0"
+    ],
+    "description": "Create a mutating Mojo instance method"
+  },
+  "Static method": {
+    "prefix": "staticmethod",
+    "body": [
+      "@staticmethod",
+      "def ${1:name}(${2:args})${3: -> Type}:",
+      "    $0"
+    ],
+    "description": "Create a Mojo static method"
+  },
+  "Struct": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:Name}:",
+      "    var ${2:field}: ${3:Type}",
+      "",
+      "    def __init__(out self, ${2:field}: ${3:Type}):",
+      "        self.${2:field} = ${2:field}",
+      "        $0"
+    ],
+    "description": "Create a Mojo struct with one field and initializer"
+  },
+  "Fieldwise init struct": {
+    "prefix": "fieldwise",
+    "body": [
+      "@fieldwise_init",
+      "struct ${1:Name}:",
+      "    var ${2:field}: ${3:Type}",
+      "    $0"
+    ],
+    "description": "Create a Mojo struct using @fieldwise_init"
+  },
+  "Trait": {
+    "prefix": "trait",
+    "body": [
+      "trait ${1:Name}:",
+      "    def ${2:method}(self)${3: -> Type}:",
+      "        ...",
+      "    $0"
+    ],
+    "description": "Create a Mojo trait"
+  },
+  "Init method": {
+    "prefix": "init",
+    "body": [
+      "def __init__(out self${1:, args}):",
+      "    $0"
+    ],
+    "description": "Create a Mojo initializer"
+  },
+  "Copy init method": {
+    "prefix": "copyinit",
+    "body": [
+      "def __init__(out self, *, copy: Self):",
+      "    $0"
+    ],
+    "description": "Create a Mojo copy initializer"
+  },
+  "Move init method": {
+    "prefix": "moveinit",
+    "body": [
+      "def __init__(out self, *, deinit take: Self):",
+      "    $0"
+    ],
+    "description": "Create a Mojo move initializer"
+  },
+  "Delete method": {
+    "prefix": "del",
+    "body": [
+      "def __del__(deinit self):",
+      "    $0"
+    ],
+    "description": "Create a Mojo destructor"
+  },
+  "String method": {
+    "prefix": "str",
+    "body": [
+      "def __str__(self) -> String:",
+      "    return ${1:\"...\"}"
+    ],
+    "description": "Create a string conversion method"
+  },
+  "Equality method": {
+    "prefix": "eq",
+    "body": [
+      "def __eq__(self, other: Self) -> Bool:",
+      "    return $0"
+    ],
+    "description": "Create an equality method"
+  },
+  "Alias": {
+    "prefix": "alias",
+    "body": [
+      "alias ${1:Name} = ${2:Value}"
+    ],
+    "description": "Create a Mojo alias"
+  },
+  "Variable": {
+    "prefix": "var",
+    "body": [
+      "var ${1:name}: ${2:Type} = ${3:value}"
+    ],
+    "description": "Create a typed Mojo variable"
+  },
+  "Reference": {
+    "prefix": "ref",
+    "body": [
+      "ref ${1:name} = ${2:value}"
+    ],
+    "description": "Create a Mojo reference binding"
+  },
+  "For loop": {
+    "prefix": "for",
+    "body": [
+      "for ${1:item} in ${2:items}:",
+      "    $0"
+    ],
+    "description": "Create a Mojo for loop"
+  },
+  "While loop": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition}:",
+      "    $0"
+    ],
+    "description": "Create a Mojo while loop"
+  },
+  "If statement": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition}:",
+      "    $0"
+    ],
+    "description": "Create a Mojo if statement"
+  },
+  "If else statement": {
+    "prefix": "ifelse",
+    "body": [
+      "if ${1:condition}:",
+      "    $2",
+      "else:",
+      "    $0"
+    ],
+    "description": "Create a Mojo if/else statement"
+  },
+  "Try except": {
+    "prefix": "try",
+    "body": [
+      "try:",
+      "    $1",
+      "except e:",
+      "    $0"
+    ],
+    "description": "Create a Mojo try/except block"
+  },
+  "Try except finally": {
+    "prefix": "tryfinally",
+    "body": [
+      "try:",
+      "    $1",
+      "except e:",
+      "    $2",
+      "finally:",
+      "    $0"
+    ],
+    "description": "Create a Mojo try/except/finally block"
+  },
+  "Raise error": {
+    "prefix": "raise",
+    "body": [
+      "raise Error(\"${1:message}\")"
+    ],
+    "description": "Raise a Mojo Error"
+  },
+  "Import": {
+    "prefix": "from",
+    "body": [
+      "from ${1:module} import ${2:name}"
+    ],
+    "description": "Create a Mojo import"
+  },
+  "List value": {
+    "prefix": "list",
+    "body": [
+      "var ${1:items} = List[${2:Type}]()"
+    ],
+    "description": "Create a Mojo List value"
+  },
+  "Dict value": {
+    "prefix": "dict",
+    "body": [
+      "var ${1:map} = Dict[${2:Key}, ${3:Value}]()"
+    ],
+    "description": "Create a Mojo Dict value"
+  },
+  "Test function": {
+    "prefix": "test",
+    "body": [
+      "def test_${1:name}() raises:",
+      "    $0"
+    ],
+    "description": "Create a Mojo test function"
+  }
+}

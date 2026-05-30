@@ -1,0 +1,35 @@
+name: Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip1
+
+      - name: Check native target
+        run: cargo check
+
+      - name: Check Zed extension target
+        run: cargo check --target wasm32-wasip1
+
+      - name: Check snippets
+        run: bash scripts/check-snippets.sh
+
+      - name: Check indent query
+        run: bash scripts/check-indents.sh
+
+      - name: Check highlight query order
+        run: bash scripts/check-highlight-order.sh
+
+      - name: Check runnables
+        run: bash scripts/check-runnables.sh

@@ -1,0 +1,6 @@
+name = "Mojo"
+grammar = "mojo"
+path_suffixes = ["mojo"]
+line_comments = ["# "]
+tab_size = 4
+completion_query_characters = [".", "@"]

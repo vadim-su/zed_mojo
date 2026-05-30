@@ -1,0 +1,16 @@
+id = "mojo"
+name = "Mojo"
+version = "0.0.1"
+schema_version = 1
+authors = ["Vadim Suharnikov"]
+description = "Mojo language support for Zed"
+repository = "https://github.com/vadim-su/zed_mojo"
+snippets = ["./snippets/mojo.json"]
+
+[grammars.mojo]
+repository = "https://github.com/vadim-su/tree-sitter-mojo"
+rev = "406abfdf4d2070d742e56d5e74261b5a944f729f"
+
+[language_servers.mojo-lsp-server]
+name = "Mojo LSP"
+languages = ["Mojo"]
